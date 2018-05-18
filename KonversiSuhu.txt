@@ -1,0 +1,132 @@
+import java.util.Scanner;
+
+public class KonversiSuhu
+{
+ public static void main(String[] args)
+ {
+  int pilih = 0;
+  double c,f,r;
+  char ulang;
+  Scanner input = new Scanner(System.in);
+  suhu ubah = new suhu();
+
+  do
+  {
+
+  System.out.println("                            =====                Konversi Suhu              =====");
+  System.out.println("                            ===                   Pilih Menu                  ===");
+  System.out.println("                            ===     (1)Konversi dari Fahrenheit menjadi Celcius    ===");
+  System.out.println("                            ===     (2)Konversi dari Fahrenheit menjadi Reamur     ===");
+  System.out.println("                            ===     (3)Konversi dari Reamur menjadi Celcius        ===");
+  System.out.println("                            ===     (4)Konversi dari Reamur menjadi Fahrenheit     ===");
+  System.out.println("                            ===     (5)Konversi dari Celcius menjadi Fahrenheit    ===");
+  System.out.println("                            ===     (6)Konversi dari Celcius menjadi Reamur        ===");
+  System.out.println("                            =====================================================");
+
+
+  System.out.print("Silahkan masukkan kode menu:");
+  pilih =input.nextInt();
+
+  switch(pilih)
+  {
+   case 1:
+   System.out.println("===Konversi dari Fahrenheit menjadi Celcius===");
+   System.out.print("\nMasukkan suhu: ");
+   f = input.nextDouble();
+   ubah.f_c(f);
+   break;
+
+   case 2:
+   System.out.println("===Konversi dari Fahrenheit menjadi Reamur===");
+   System.out.print("\nMasukkan suhu: ");
+   f = input.nextDouble();
+   ubah.f_r(f);
+   break;
+
+   case 3:
+   System.out.println("===Konversi dari Reamur menjadi Celcius===");
+   System.out.print("\nMasukkan suhu: ");
+   r = input.nextDouble();
+   ubah.r_c(r);
+   break;
+
+   case 4:
+   System.out.println("===Konversi dari Reamur menjadi Fahrenheit===");
+   System.out.print("\nMasukkan suhu: ");
+   r = input.nextDouble();
+   ubah.r_f(r);
+   break;
+
+   case 5:
+   System.out.println("===Konversi dari Celcius menjadi Fahrenheit===");
+   System.out.print("\nMasukkan suhu: ");
+   c = input.nextDouble();
+   ubah.c_f(c);
+   break;
+
+   case 6:
+   System.out.println("===Konversi dari Celcius menjadi Reamur===");
+   System.out.print("\nMasukkan suhu: ");
+   c = input.nextDouble();
+   ubah.c_r(c);
+   break;
+   }
+   System.out.print("Apakah anda masih ingin mengulangi program? (Y/N)");
+   ulang = input.next().charAt(0);
+  }
+  
+  while (ulang == 'y' || ulang == 'Y');
+  
+  }
+}
+
+ class suhu
+{
+ double f, c, r;
+
+ public suhu ()
+ {
+  
+ }
+ public double f_c(double f)
+ {   
+     c = ((f-32) * 5)/9;
+  System.out.println("\n" + f + " Fahrenheit ==> " + c + " Celcius");
+     return c;
+ }
+ 
+ public double f_r(double f)
+ {  
+  r = ((f - 32) * 4)/ 9;
+  System.out.println("\n" + f + " Fahrenheit ==> " + r + " Reamur");
+  return r;
+ }
+ 
+ public double r_c(double r)
+ {
+  c = ((r * 5)/4);
+  System.out.println("\n" + r + " Reamur ==> " + c + " Celcius");
+  return c;
+ }
+ 
+ public double r_f(double r)
+ {
+  f = ((r * 9)/4) + 32;
+  System.out.println("\n" + r + " Reamur ==> " + f + " Fahrenheit");
+  return f;
+ }
+
+ public double c_f(double c)
+ {  
+  f = ((c * 9)/5) + 32;
+  System.out.println("\n" + c + " Celcius ==> " + f + " Fahrenheit");
+  return f;
+ }
+ 
+ public double c_r(double c)
+ {
+  r = ((c * 4)/5);
+  System.out.println("\n" + c + " Celcius ==> " + r + " Reamur");
+  return r;
+ }
+}
